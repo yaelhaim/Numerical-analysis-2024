@@ -1,4 +1,25 @@
-# @source: https://github.com/lihiSabag/Numerical-Analysis-2023.git
+"""
+Input: Matrix A of size n×n, pointing to vector b of length n, initial guess X0, tolerance TOL (default 1e-16), maximum number of iterations N (default 200).
+
+1. Check if A produces a matrix with a dominant diagonal. If not, raise an error.
+2. Initialize variable k to 1.
+3. Print a message indicating that the matrix has a dominant diagonal and Gauss-Seidel algorithm will be used.
+4. Print a header row containing the column names x1 to xn for the table to be printed.
+5. Loop to perform the algorithm while k is less than or equal to N:
+   - For each i from 0 to n-1:
+     * Compute sigma, the sum of all variables excluding the current one (x_j) in row i, such that j ≠ i:
+       sigma = Σ (A[i][j] * x[j]) for j ≠ i
+     * Update the value of variable x[i] using the formula:
+       x[i] = (b[i] - sigma) / A[i][i]
+   - Print the iteration number k and the values of variables x1 to xn.
+   - Check if the difference between X0 and x is less than the tolerance TOL using the infinity-norm distance measurement. If yes, return the values of the variables.
+   - Update the value of k.
+   - Update the variable X0 to be equal to x.
+6. Print an error message if the maximum number of iterations N is exceeded.
+7. Return the values of variables x1 to xn if it exits the loop.
+
+"""
+
 import numpy as np
 from numpy.linalg import norm
 
