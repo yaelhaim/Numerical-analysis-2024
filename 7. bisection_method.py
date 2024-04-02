@@ -46,6 +46,7 @@ def bisection_method(f, a, b, tol=1e-6):
         k += 1
     return c  # return the current root
 
+
 if __name__ == '__main__':
 
     fun = lambda x: x**2 - 4 * math.sin(x)
