@@ -3,7 +3,35 @@ import numpy as np
 from Matrix.inverse_matrix import inverse
 from colors import bcolors
 from matrix_utility import print_matrix
+"""
+Function norm(mat):
+    Input: mat - square matrix
+    Output: max_norm - maximum norm of the matrix
+    
+    size = length of mat
+    max_row = 0  # This variable will hold the maximum sum of values in a row
+    
+    For each row in the matrix:
+        sum_row = 0  # Initialize the sum of values in the row
+        For each column in the matrix:
+            sum_row += absolute value of the value at [row][column]
+        If sum_row is greater than max_row:
+            max_row = sum_row  # Update the maximum row norm
+        
+    Return max_row  # Return the maximum row norm
 
+Function condition_number(A):
+    Input: A - matrix
+    Output: cond - condition number of matrix A
+    
+    norm_A = norm(A)  # Calculate the maximum norm (infinity norm) of matrix A
+    A_inv = inverse(A)  # Calculate the inverse of matrix A
+    norm_A_inv = norm(A_inv)  # Calculate the maximum norm of the inverse of A
+    cond = norm_A * norm_A_inv  # Compute the condition number of matrix A
+    
+    Return cond  # Return the condition number of matrix A
+
+"""
 
 
 def norm(mat):
