@@ -3,6 +3,71 @@ import numpy as np
 from colors import bcolors
 from matrix_utility import swap_rows_elementary_matrix, row_addition_elementary_matrix, MultiplyMatrix
 
+"""
+Function lu(A):
+    Input: A - a square matrix
+    Output: L, U - the lower and upper triangular matrices of A
+
+    N = size of A
+    L = identity matrix of size N x N
+
+    For i from 0 to N-1:
+        Find pivot row with largest absolute value in current column
+        If pivot element is 0:
+            Raise ValueError("matrix is singular")
+
+        If pivot row is not equal to i:
+            Create elementary matrix to swap rows
+            Apply elementary matrix to A
+            Apply inverse of elementary matrix to L
+
+        For j from i+1 to N-1:
+            Compute multiplier
+            Create elementary matrix to zero out element below pivot
+            Apply elementary matrix to A
+            Apply inverse of elementary matrix to L
+
+    Check if diagonal elements of U are zero
+    If any diagonal element of U is zero:
+        Raise ValueError("matrix is singular")
+
+    Return L, U
+
+Function backward_substitution(mat):
+    Input: mat - upper triangular matrix augmented with right-hand side vector
+    Output: x - solution vector
+
+    N = size of mat
+    Create an array x to store solution
+    
+    For i from N-1 down to 0:
+        Set x[i] as the last column element of mat[i]
+        For j from i+1 to N-1:
+            Subtract mat[i][j] multiplied by x[j] from x[i]
+        Divide x[i] by mat[i][i]
+
+    Return x
+
+Function lu_solve(A_b):
+    Input: A_b - augmented matrix [A | b] where A is a square matrix and b is the right-hand side vector
+    Output: Prints the solution vector if successful, otherwise prints an error message
+
+    Try:
+        Compute LU decomposition of A_b to obtain L and U
+        Print Lower triangular matrix L and Upper triangular matrix U
+        
+        Compute B = L * U
+        Print B
+        
+        Compute solution vector using backward substitution with U
+        Print solution vector
+        
+    Except ValueError as e:
+        Print the error message
+
+
+"""
+
 def lu(A):
         N = len(A)
         L = np.eye(N)  # Create an identity matrix of size N x N
