@@ -1,3 +1,61 @@
+"""
+Function GaussJordanElimination(matrix, vector):
+    Perform pivoting process
+    Calculate inverse matrix
+    Return multiplied matrix by vector
+
+Function UMatrix(matrix, vector):
+    Initialize U matrix as identity matrix
+    Loop for each row:
+        Perform pivoting process
+        Loop for each column:
+            Perform pivoting process
+            Calculate elementary matrix
+            Multiply elementary matrix with original matrix
+    Return U matrix
+
+Function LMatrix(matrix, vector):
+    Initialize L matrix as identity matrix
+    Loop for each row:
+        Perform pivoting process
+        Loop for each column:
+            Perform pivoting process
+            Calculate elementary matrix
+            Multiply elementary matrix with original matrix
+    Return L matrix
+
+Function SolveLU(matrix, vector):
+    Calculate U matrix
+    Calculate L matrix
+    Return multiplication of inverse U matrix with multiplication of inverse L matrix with vector
+
+Function solveMatrix(matrixA, vectorB):
+    Calculate determinant of matrixA
+    Print determinant
+    If determinant is not equal to zero:
+        Print condition number
+        Print non-Singular Matrix message
+        Perform Gauss-Jordan Elimination
+        Return result
+    Else:
+        Print Singular Matrix message
+        Print U matrix
+        Print L matrix
+        Print A=LU matrix
+        Return result
+
+Function polynomialInterpolation(table_points, x):
+    Initialize matrix using table points
+    Initialize vector b using y values of table points
+    Print matrix and vector b
+    Solve matrix equation
+    Calculate polynomial result
+    Print polynomial equation and result
+    Return result
+
+"""
+
+
 from colors import bcolors
 from matrix_utility import *
 
@@ -114,8 +172,8 @@ def polynomialInterpolation(table_points, x):
 
 if __name__ == '__main__':
 
-    table_points = [(0, 0), (1, 0.8415), (2, 0.9093), (3, 0.1411), (4, -0.7568), (5, -0.9589), (6, -0.2794)]
-    x = 1.28
+    table_points = [(1, 3), (2, 4), (3, -1)]
+    x = 1.5
     print(bcolors.OKBLUE, "----------------- Interpolation & Extrapolation Methods -----------------\n", bcolors.ENDC)
     print(bcolors.OKBLUE, "Table Points: ", bcolors.ENDC, table_points)
     print(bcolors.OKBLUE, "Finding an approximation to the point: ", bcolors.ENDC, x,'\n')
