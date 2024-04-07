@@ -30,9 +30,7 @@ from matrix_utility import is_diagonally_dominant
 def gauss_seidel(A, b, X0, TOL=1e-16, N=200):
     n = len(A)
     k = 1
-    if not is_diagonally_dominant(A):
-        raise ValueError("A matrix has no dominant diagonal.")
-    print('Matrix is diagonally dominant - preforming gauss seidel algorithm\n')
+    print('preforming gauss seidel algorithm\n')
     print( "Iteration" + "\t\t\t".join([" {:>12}".format(var) for var in ["x{}".format(i) for i in range(1, len(A) + 1)]]))
     print("-----------------------------------------------------------------------------------------------")
     x = np.zeros(n, dtype=np.double)
@@ -55,12 +53,13 @@ def gauss_seidel(A, b, X0, TOL=1e-16, N=200):
 
 if __name__ == '__main__':
 
-    A = np.array([[3, -1, 1], [0, 1, -1], [1, 1, -2]])
-    b = np.array([4, -1, -3])
+    A = np.array([[9, 3, 1], [4, 2, 1], [1, 1, 1]])
+    b = np.array([-1, 4, 3])
     X0 = np.zeros_like(b)
 
     try:
         solution =gauss_seidel(A, b, X0)
+        solution = tuple(map(lambda x: round(x, 2), solution))
         print(bcolors.OKBLUE,"\nApproximate solution:", solution)
 
     except ValueError as e:
